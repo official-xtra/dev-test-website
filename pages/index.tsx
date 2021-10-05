@@ -10,6 +10,7 @@ import {
 	VStack,
 	HStack,
 	Grid,
+	Image,
 } from "@chakra-ui/react";
 import {
 	FaMoon,
@@ -21,10 +22,10 @@ import {
 } from "react-icons/fa";
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
-import data from "../data/data.json";
+import buttons from "../data/buttons.json";
 
 const Home: NextPage = () => {
+	console.log(buttons);
 	const { colorMode, toggleColorMode } = useColorMode();
 
 	const [lightColor, darkColor] = useToken("colors", [
@@ -71,7 +72,12 @@ const Home: NextPage = () => {
 
 					<HStack w="100%">
 						<Box borderRadius="lg">
-							<Image src="/xtra.png" width="100px" height="100px" alt="xtra" />
+							<Image
+								boxSize="100px"
+								borderRadius="lg"
+								src="https://raw.githubusercontent.com/official-xtra/dev-test-website/main/public/xtra.png"
+								alt="xtra"
+							/>
 						</Box>
 
 						<VStack
@@ -91,7 +97,7 @@ const Home: NextPage = () => {
 								Official X-TRA
 							</Heading>
 
-							<Text fontSize={["sm", "lg"]}>
+							<Text fontSize={["sm", "lg"]} fontWeight="medium" pl={1}>
 								We are not just Solidarity, but we are Family
 							</Text>
 						</VStack>
@@ -121,28 +127,22 @@ const Home: NextPage = () => {
 					<Grid
 						w="100%"
 						templateColumns={["repeat(2, 1fr)", "repeat(4, 1fr)"]}
-						gap={6}
+						gap={4}
 					>
-						<Button
-							leftIcon={<FaInstagram />}
-							colorScheme="pink"
-							variant="solid"
-						>
-							Instagram
-						</Button>
-						<Button
-							leftIcon={<FaFacebookSquare />}
-							colorScheme="facebook"
-							variant="solid"
-						>
-							Facebook
-						</Button>
-						<Button leftIcon={<FaYoutube />} colorScheme="red" variant="solid">
-							YouTube
-						</Button>
-						<Button leftIcon={<FaSteam />} colorScheme="gray" variant="solid">
-							Steam
-						</Button>
+						{buttons.map((button) => (
+							<Button
+								as="a"
+								href={button.url}
+								key={button.id}
+								bgColor={button.bgColor}
+								_hover={{ bg: button.hover }}
+								_active={{ bg: button.active }}
+								variant={button.variant}
+								target="_blank"
+							>
+								{button.name}
+							</Button>
+						))}
 					</Grid>
 				</VStack>
 			</Container>
