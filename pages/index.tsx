@@ -72,7 +72,7 @@ const Home: NextPage = () => {
 					<HStack w="100%">
 						<Box borderRadius="lg">
 							<Image
-								boxSize="100px"
+								boxSize={["75px", "100px"]}
 								borderRadius="lg"
 								src="https://raw.githubusercontent.com/official-xtra/dev-test-website/main/public/xtra.png"
 								alt="xtra"
@@ -133,6 +133,7 @@ const Home: NextPage = () => {
 								as="a"
 								href={button.url}
 								key={button.id}
+								color="white"
 								bgColor={button.bgColor}
 								_hover={{ bg: button.hover }}
 								_active={{ bg: button.active }}
