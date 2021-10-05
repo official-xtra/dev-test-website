@@ -25,7 +25,6 @@ import Head from "next/head";
 import buttons from "../data/buttons.json";
 
 const Home: NextPage = () => {
-	console.log(buttons);
 	const { colorMode, toggleColorMode } = useColorMode();
 
 	const [lightColor, darkColor] = useToken("colors", [
