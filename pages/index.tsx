@@ -87,7 +87,7 @@ const Home: NextPage = () => {
 							<Heading
 								as="h1"
 								fontWeight="bold"
-								fontSize={["3xl", "5xl"]}
+								fontSize={["2.35rem", "5xl"]}
 								textAlign="center"
 								textTransform="uppercase"
 								textColor="yellow.300"
@@ -110,7 +110,7 @@ const Home: NextPage = () => {
 					>
 						<Heading
 							as="h1"
-							fontSize={["2xl", "3.25rem"]}
+							fontSize={["1.65rem", "3.25rem"]}
 							lineHeight="1.5"
 							textTransform="capitalize"
 						>
@@ -146,6 +146,14 @@ const Home: NextPage = () => {
 					</Grid>
 				</VStack>
 			</Container>
+
+			<Box as="svg" pos="absolute" viewBox="0 0 1440 280" zIndex={-1}>
+				<path
+					fill={bgSvg}
+					fillOpacity="1"
+					d="M0,64L48,58.7C96,53,192,43,288,32C384,21,480,11,576,48C672,85,768,171,864,197.3C960,224,1056,192,1152,149.3C1248,107,1344,53,1392,26.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+				/>
+			</Box>
 		</>
 	);
 };
