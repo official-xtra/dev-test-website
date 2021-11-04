@@ -5,5 +5,5 @@
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true
 	},
-	"discord.enabled": false // from extension: discord presence
+	"discord.enabled": false
 }
