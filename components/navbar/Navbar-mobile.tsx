@@ -1,0 +1,105 @@
+import * as React from "react";
+import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
+import {
+  Box,
+  Container,
+  HStack,
+  Button,
+  Icon,
+  IconButton,
+  useToken,
+  Heading,
+  Spacer,
+  Divider,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+} from "@chakra-ui/react";
+import {
+  FaMoon,
+  FaSun,
+  FaInstagram,
+  FaFacebookSquare,
+  FaYoutube,
+  FaSteam,
+  FaLiraSign,
+} from "react-icons/fa";
+import { HamburgerIcon } from "@chakra-ui/icons";
+import { IconType } from "react-icons/lib";
+import NextLink from "next/link";
+import siteConfig from "../../config/site";
+
+const NAV_SOCIAL_LINKS: [string, string, IconType][] = [
+  ["Instagram", siteConfig.socials.Instagram, FaInstagram],
+  ["Facebook", siteConfig.socials.Facebook, FaFacebookSquare],
+  ["YouTube", siteConfig.socials.YouTube, FaYoutube],
+  ["Steam", siteConfig.socials.Steam, FaSteam],
+];
+
+export const NavbarMobile: React.FC = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
+
+  const [lightColor, darkColor] = useToken("colors", [
+    "gray.900",
+    "gray.50",
+  ]) as [string, string];
+
+  const bgSvg = useColorModeValue(darkColor, lightColor);
+  const bgMenu = useColorModeValue("gray.200", "gray.800");
+
+  return (
+    <>
+      <Container
+        as="header"
+        maxW="container.lg"
+        maxH={["100%", "100vh"]}
+        h="100%"
+        py={[4, 8]}
+      >
+        <HStack as="nav" w="100%" mb={6} alignItems="flex-start">
+          <HStack>
+            <NextLink href="#" passHref>
+              <Button as="a" variant="ghost">
+                Home
+              </Button>
+            </NextLink>
+
+            <NextLink href="#" passHref>
+              <Button as="a" variant="ghost">
+                Coming Soon
+              </Button>
+            </NextLink>
+          </HStack>
+
+          <Spacer />
+
+          <HStack>
+            <Button variant="ghost" onClick={toggleColorMode}>
+              {colorMode === "light" ? <FaMoon /> : <FaSun />}
+            </Button>
+            <Menu>
+              <MenuButton
+                as={IconButton}
+                aria-label="Options"
+                icon={<HamburgerIcon />}
+                variant="outline"
+              />
+              <MenuList bgColor={bgMenu}>
+                {NAV_SOCIAL_LINKS.map(([name, href, AsIcon]) => (
+                  <NextLink key={name} href={href} passHref>
+                    <MenuItem as="a" icon={<AsIcon />} target="_blank">
+                      {name}
+                    </MenuItem>
+                  </NextLink>
+                ))}
+              </MenuList>
+            </Menu>
+          </HStack>
+        </HStack>
+
+        <Divider />
+      </Container>
+    </>
+  );
+};
