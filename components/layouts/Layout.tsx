@@ -1,5 +1,5 @@
-import { Container } from "@chakra-ui/react";
 import * as React from "react";
+import { Footer } from "../footer";
 import { Navbar } from "../navbar";
 
 export const Layout: React.FC = ({ children }) => {
@@ -7,6 +7,7 @@ export const Layout: React.FC = ({ children }) => {
     <>
       <Navbar />
       {children}
+      <Footer />
     </>
   );
 };
