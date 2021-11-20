@@ -49,11 +49,16 @@ export const SectionMoments: React.FC = () => {
   return (
     <Box as="section" w="100%" h="100%" bgColor={bgColor} pb={16}>
       <Container maxW="container.lg" h="100%" py={4}>
-        <VStack alignItems="center" spacing={4} pb={[12, 16]}>
-          <Heading as="h2" fontSize={["xl", "3xl"]} textColor={textColor}>
+        <VStack
+          alignItems="center"
+          textAlign="center"
+          spacing={4}
+          pb={[12, 16]}
+        >
+          <Heading as="h2" fontSize={["2xl", "3xl"]} textColor={textColor}>
             Moments
           </Heading>
-          <Text fontSize={["xs", "md"]}>
+          <Text>
             Here are some of our selected moments from various occasions
           </Text>
         </VStack>

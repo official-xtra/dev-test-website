@@ -26,12 +26,12 @@ export const Footer: React.FC = () => {
 
   return (
     <Box as="footer">
-      <Container maxW="container.lg" h="45vh" px={4} py={[8, 12]}>
+      <Container maxW="container.lg" h={["100%", "45vh"]} px={6} py={12}>
         <HStack h="100%" align="flex-start" justify="flex-start">
           <VStack
-            align="flex-start"
-            textAlign="left"
-            fontSize={["xs", "sm"]}
+            align={["center", "flex-start"]}
+            textAlign={["center", "left"]}
+            fontSize="sm"
             spacing={[4, 6]}
           >
             <Text>
@@ -100,9 +100,9 @@ export const Footer: React.FC = () => {
             </Text>
           </VStack>
 
-          <Spacer />
+          <Spacer display={["none", "block"]} />
 
-          <VStack textAlign="left">
+          <VStack textAlign="left" display={["none", "block"]}>
             <Stack>
               <Text
                 fontSize={["xs", "md"]}

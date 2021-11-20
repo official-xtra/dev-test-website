@@ -56,10 +56,9 @@ export const NavbarMobile: React.FC = () => {
           as="header"
           maxW="container.lg"
           maxH={["100%", "100vh"]}
-          h="14vh"
-          py={6}
+          py={4}
         >
-          <HStack as="nav" w="100%" alignItems="flex-start" mb={4}>
+          <HStack as="nav" w="100%" alignItems="flex-start">
             <HStack>
               <NextLink href="#" passHref>
                 <Button as="a" variant="ghost" color={color}>
@@ -68,7 +67,7 @@ export const NavbarMobile: React.FC = () => {
               </NextLink>
 
               <NextLink href="#" passHref>
-                <Button as="a" variant="ghost">
+                <Button as="a" variant="ghost" opacity="0.5">
                   Coming Soon
                 </Button>
               </NextLink>

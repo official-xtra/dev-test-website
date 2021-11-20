@@ -81,7 +81,12 @@ const Home: NextPage = () => {
         h="100%"
         py={4}
       >
-        <VStack w="100%" spacing="1.5rem" alignItems="flex-start" mt="17vh">
+        <VStack
+          w="100%"
+          spacing="1.5rem"
+          alignItems="flex-start"
+          mt={["6rem", "17vh"]}
+        >
           <HStack w="100%" spacing="1rem">
             <Box borderRadius="lg">
               <Image
@@ -145,7 +150,7 @@ const Home: NextPage = () => {
             <Grid
               width={{ base: "100%", lg: "75%" }}
               templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(4, 1fr)" }}
-              gap={{ base: 4, lg: 6 }}
+              gap={{ base: 3, lg: 6 }}
             >
               {SOCIAL_LINKS.map(([btnName, href, AsIcon, colorScheme]) => (
                 <Button
