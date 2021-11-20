@@ -23,7 +23,6 @@ import {
   FaFacebookSquare,
   FaYoutube,
   FaSteam,
-  FaLiraSign,
 } from "react-icons/fa";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { IconType } from "react-icons/lib";
@@ -76,7 +75,7 @@ export const NavbarMobile: React.FC = () => {
             <Spacer />
 
             <HStack>
-              <Button variant="ghost" onClick={toggleColorMode}>
+              <Button variant="ghost" onClick={toggleColorMode} px={2}>
                 {colorMode === "light" ? <FaMoon /> : <FaSun />}
               </Button>
               <Menu>
