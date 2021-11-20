@@ -25,7 +25,6 @@ import * as React from "react";
 import NextImage from "next/image";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import moments from "../data/moments";
-import { buildUrl } from "cloudinary-build-url";
 
 const MOMENTS_DATA: [string, string, string][] = [
   [moments.one.imgUrl, moments.one.postUrl, moments.one.date],
@@ -37,22 +36,6 @@ const MOMENTS_DATA: [string, string, string][] = [
 ];
 
 export const SectionMoments: React.FC = () => {
-  // const url = buildUrl("xtra/moment-1_rvr0ii", {
-  //   cloud: {
-  //     cloudName: "ofc-xtra",
-  //   },
-  // });
-
-  // const urlBlurred = buildUrl("xtra/moment-1_rvr0ii", {
-  //   cloud: {
-  //     cloudName: "ofc-xtra",
-  //   },
-  //   transformations: {
-  //     effect: "blur:1000",
-  //     quality: 1,
-  //   },
-  // });
-
   const [lightColor, darkColor] = useToken("colors", [
     "gray.900",
     "gray.50",
@@ -88,25 +71,6 @@ export const SectionMoments: React.FC = () => {
           ]}
           gap={[6, 8]}
         >
-          {/* <Box
-            position="relative"
-            backgroundImage={urlBlurred}
-            height="0"
-            paddingTop={`${(640 / 1080) * 100}%`}
-            backgroundPosition="center center"
-            backgroundSize="100%"
-          >
-            <Box pos="absolute" top="0" left="0">
-              <NextImage
-                width="1080"
-                height="640"
-                src={moments.one.imgUrl}
-                alt="moment's picture"
-                blurDataURL={moments.one.imgUrl}
-                placeholder="blur"
-              />
-            </Box>
-          </Box> */}
           {MOMENTS_DATA.map(([image, post, date]) => (
             <VStack
               key={image}
