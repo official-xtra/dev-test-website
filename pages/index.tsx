@@ -16,8 +16,6 @@ import {
   Image,
 } from "@chakra-ui/react";
 import {
-  FaMoon,
-  FaSun,
   FaInstagram,
   FaFacebookSquare,
   FaYoutube,
