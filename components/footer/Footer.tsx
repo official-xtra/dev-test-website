@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
   const textColor = useColorModeValue("gray.800", "yellow.300");
 
   return (
-    <Box as="footer">
+    <Box as="footer" bgColor={bgColor}>
       <Container maxW="container.lg" h={["100%", "45vh"]} px={6} py={12}>
         <HStack h="100%" align="flex-start" justify="flex-start">
           <VStack
