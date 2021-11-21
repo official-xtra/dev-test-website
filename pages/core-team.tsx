@@ -2,15 +2,22 @@ import Head from "next/head";
 import type { NextPage } from "next";
 import {
   Container,
+  Stack,
   VStack,
   HStack,
   Heading,
   Text,
   Box,
   Center,
-  Avatar,
+  Image as ProfilePic,
 } from "@chakra-ui/react";
 import teamInfo from "../components/data/teamInfo";
+
+const TEAM_MEMBER: [string, string, string][] = [
+  ["Ilham Bara", teamInfo.member[1], "Lead"],
+  ["Amin Rizki", teamInfo.member[2], "Member"],
+  ["Sulthan Rafif", teamInfo.member[3], "Member"],
+];
 
 const Team: NextPage = () => {
   return (
@@ -41,31 +48,41 @@ const Team: NextPage = () => {
           <Text fontSize="lg">{teamInfo.desc}</Text>
         </VStack>
 
-        <HStack spacing={4}>
-          <Box
-            justifyContent="center"
-            maxW="30%"
-            bg="gray.900"
-            my={8}
-            p={4}
-            lineHeight={1.8}
-            boxShadow="lg"
-          >
-            <Center>
-              <Avatar
-                size="2xl"
-                name="Dan Abrahmov"
-                src="https://raw.githubusercontent.com/official-xtra/dev-test-website/main/public/xtra.png"
-              />
-            </Center>
-            <Heading as="h2" fontSize="2xl" fontWeight="semibold" py={4}>
-              name
-            </Heading>
-            <Text fontSize="sm" opacity={0.75}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </Text>
-          </Box>
-        </HStack>
+        <Stack direction={["column", "row"]} align="center" spacing={8}>
+          {TEAM_MEMBER.map(([name, ava, role]) => (
+            <Box
+              width={["75%", "25%"]}
+              key={name}
+              justifyContent="center"
+              bg="gray.900"
+              my={8}
+              p={4}
+              lineHeight={1.8}
+              boxShadow="lg"
+              textAlign={["center", "left"]}
+            >
+              <Center>
+                <ProfilePic
+                  borderRadius="full"
+                  bgColor="gray.800"
+                  boxSize="180px"
+                  src={ava}
+                  alt={name}
+                />
+              </Center>
+              <Heading as="h2" fontSize="2xl" fontWeight="semibold" py={4}>
+                {name}
+              </Heading>
+              <Text fontSize="sm" opacity={0.65}>
+                {role}
+              </Text>
+            </Box>
+          ))}
+        </Stack>
+
+        <Text fontSize="sm" opacity={0.5} my={8}>
+          Note: credit of avatar goes to Apple Memoji.
+        </Text>
       </Container>
     </>
   );
