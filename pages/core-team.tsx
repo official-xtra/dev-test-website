@@ -10,7 +10,9 @@ import {
   Box,
   Center,
   Image as ProfilePic,
+  useToken,
 } from "@chakra-ui/react";
+import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
 import teamInfo from "../components/data/teamInfo";
 
 const TEAM_MEMBER: [string, string, string][] = [
@@ -20,6 +22,13 @@ const TEAM_MEMBER: [string, string, string][] = [
 ];
 
 const Team: NextPage = () => {
+  const [lightColor, darkColor] = useToken("colors", [
+    "gray.900",
+    "gray.50",
+  ]) as [string, string];
+
+  const bgColor = useColorModeValue(darkColor, lightColor);
+  const color = useColorModeValue("gray.800", "yellow.300");
   return (
     <>
       <Head>
@@ -41,21 +50,20 @@ const Team: NextPage = () => {
             fontSize={["1.5rem", "3rem"]}
             lineHeight="1.5"
             textTransform="capitalize"
+            textColor={color}
           >
             {teamInfo.title}
           </Heading>
 
-          <Text fontSize="lg">{teamInfo.desc}</Text>
+          <Text fontSize={["md", "lg"]}>{teamInfo.desc}</Text>
         </VStack>
 
-        <Stack direction={["column", "row"]} align="center" spacing={8}>
+        <Stack direction={["column", "row"]} align="center" my={8} spacing={8}>
           {TEAM_MEMBER.map(([name, ava, role]) => (
             <Box
-              width={["75%", "25%"]}
               key={name}
-              justifyContent="center"
-              bg="gray.900"
-              my={8}
+              width={["75%", "50%", "25%"]}
+              bg={bgColor}
               p={4}
               lineHeight={1.8}
               boxShadow="lg"
@@ -70,7 +78,7 @@ const Team: NextPage = () => {
                   alt={name}
                 />
               </Center>
-              <Heading as="h2" fontSize="2xl" fontWeight="semibold" py={4}>
+              <Heading as="h2" fontSize="2xl" fontWeight="semibold" py={[2, 4]}>
                 {name}
               </Heading>
               <Text fontSize="sm" opacity={0.65}>
