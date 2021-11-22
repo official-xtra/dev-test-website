@@ -15,12 +15,7 @@ import {
   Grid,
   Image,
 } from "@chakra-ui/react";
-import {
-  FaInstagram,
-  FaFacebookSquare,
-  FaYoutube,
-  FaSteam,
-} from "react-icons/fa";
+import { FaInstagram, FaDiscord, FaYoutube, FaSteam } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
 import type { NextPage } from "next";
 import Head from "next/head";
@@ -30,7 +25,7 @@ import { SectionActivities } from "../components/sections/Section-activities";
 
 const SOCIAL_LINKS: [string, string, IconType, string][] = [
   ["Instagram", siteConfig.socials.Instagram, FaInstagram, "pink"],
-  ["Facebook", siteConfig.socials.Facebook, FaFacebookSquare, "facebook"],
+  ["Discord", siteConfig.socials.Discord, FaDiscord, "purple"],
   ["YouTube", siteConfig.socials.YouTube, FaYoutube, "red"],
   ["Steam", siteConfig.socials.Steam, FaSteam, "blue"],
 ];

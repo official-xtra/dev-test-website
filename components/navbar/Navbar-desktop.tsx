@@ -15,7 +15,7 @@ import {
   FaMoon,
   FaSun,
   FaInstagram,
-  FaFacebookSquare,
+  FaDiscord,
   FaYoutube,
   FaSteam,
   FaLiraSign,
@@ -26,7 +26,7 @@ import siteConfig from "../../config/site";
 
 const NAV_SOCIAL_LINKS: [string, string, IconType][] = [
   ["Instagram", siteConfig.socials.Instagram, FaInstagram],
-  ["Facebook", siteConfig.socials.Facebook, FaFacebookSquare],
+  ["Discord", siteConfig.socials.Discord, FaDiscord],
   ["YouTube", siteConfig.socials.YouTube, FaYoutube],
   ["Steam", siteConfig.socials.Steam, FaSteam],
 ];

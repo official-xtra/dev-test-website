@@ -20,7 +20,7 @@ import {
   FaMoon,
   FaSun,
   FaInstagram,
-  FaFacebookSquare,
+  FaDiscord,
   FaYoutube,
   FaSteam,
 } from "react-icons/fa";
@@ -31,7 +31,7 @@ import siteConfig from "../../config/site";
 
 const NAV_SOCIAL_LINKS: [string, string, IconType][] = [
   ["Instagram", siteConfig.socials.Instagram, FaInstagram],
-  ["Facebook", siteConfig.socials.Facebook, FaFacebookSquare],
+  ["Discord", siteConfig.socials.Discord, FaDiscord],
   ["YouTube", siteConfig.socials.YouTube, FaYoutube],
   ["Steam", siteConfig.socials.Steam, FaSteam],
 ];
@@ -59,7 +59,7 @@ export const NavbarMobile: React.FC = () => {
         >
           <HStack as="nav" w="100%" alignItems="flex-start">
             <HStack>
-              <NextLink href="#" passHref>
+              <NextLink href="/" passHref>
                 <Button as="a" variant="ghost" color={color}>
                   Home
                 </Button>

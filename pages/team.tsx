@@ -7,18 +7,20 @@ import {
   HStack,
   Heading,
   Text,
+  Link,
   Box,
   Center,
   Image as ProfilePic,
   useToken,
 } from "@chakra-ui/react";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
 import teamInfo from "../components/data/teamInfo";
 
-const TEAM_MEMBER: [string, string, string][] = [
-  ["Ilham Bara", teamInfo.member[1], "Lead"],
-  ["Amin Rizki", teamInfo.member[2], "Member"],
-  ["Sulthan Rafif", teamInfo.member[3], "Member"],
+const TEAM_MEMBER: [string, string, string, string][] = [
+  ["Ilham Bara", teamInfo.member[1], teamInfo.socmed[1], "Lead Developer"],
+  ["Amin Rizki", teamInfo.member[2], teamInfo.socmed[2], "Internals"],
+  ["Sulthan Rafif", teamInfo.member[3], teamInfo.socmed[3], "Externals"],
 ];
 
 const Team: NextPage = () => {
@@ -59,12 +61,12 @@ const Team: NextPage = () => {
         </VStack>
 
         <Stack direction={["column", "row"]} align="center" my={8} spacing={8}>
-          {TEAM_MEMBER.map(([name, ava, role]) => (
+          {TEAM_MEMBER.map(([name, ava, href, role]) => (
             <Box
               key={name}
               width={["75%", "50%", "25%"]}
               bg={bgColor}
-              p={4}
+              p={6}
               lineHeight={1.8}
               boxShadow="lg"
               textAlign={["center", "left"]}
@@ -79,8 +81,11 @@ const Team: NextPage = () => {
                 />
               </Center>
               <Heading as="h2" fontSize="2xl" fontWeight="semibold" py={[2, 4]}>
-                {name}
+                <Link href={href} isExternal>
+                  {name} <ExternalLinkIcon boxSize={4} mx="2px" />
+                </Link>
               </Heading>
+
               <Text fontSize="sm" opacity={0.65}>
                 {role}
               </Text>
@@ -89,7 +94,7 @@ const Team: NextPage = () => {
         </Stack>
 
         <Text fontSize="sm" opacity={0.5} my={8}>
-          Note: credit of avatar goes to Apple Memoji.
+          {teamInfo.note}
         </Text>
       </Container>
     </>

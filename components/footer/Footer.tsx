@@ -1,3 +1,4 @@
+import * as React from "react";
 import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
 import {
   Box,
@@ -12,7 +13,8 @@ import {
   useBreakpointValue,
   Spacer,
 } from "@chakra-ui/react";
-import * as React from "react";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
+import NextLink from "next/link";
 import siteConfig from "../../config/site";
 
 export const Footer: React.FC = () => {
@@ -102,29 +104,58 @@ export const Footer: React.FC = () => {
 
           <Spacer display={["none", "block"]} />
 
-          <VStack textAlign="left" display={["none", "block"]}>
-            <Stack>
-              <Text
-                fontSize={["xs", "md"]}
-                fontWeight="medium"
-                letterSpacing="widest"
-                textTransform="uppercase"
-                textColor={textColor}
-              >
-                Socials
-              </Text>
-              {Object.entries(siteConfig.socials).map(([social, href]) => (
-                <Link
-                  key={social}
-                  href={href}
-                  fontSize={["xs", "sm"]}
-                  isExternal
+          <HStack justify="flex-start" align="flex-start" spacing={16}>
+            <VStack textAlign="left" display={["none", "block"]}>
+              <Stack>
+                <Text
+                  fontSize={["xs", "md"]}
+                  fontWeight="medium"
+                  letterSpacing="widest"
+                  textTransform="uppercase"
+                  textColor={textColor}
                 >
-                  {social}
-                </Link>
-              ))}
-            </Stack>
-          </VStack>
+                  Links
+                </Text>
+                {Object.entries(siteConfig.links).map(([link, href]) => (
+                  <NextLink key={link} href={href}>
+                    <Text
+                      fontSize={["xs", "sm"]}
+                      cursor="pointer"
+                      _hover={{
+                        textDecoration: "underline",
+                      }}
+                    >
+                      {link}
+                    </Text>
+                  </NextLink>
+                ))}
+              </Stack>
+            </VStack>
+
+            <VStack textAlign="left" display={["none", "block"]}>
+              <Stack>
+                <Text
+                  fontSize={["xs", "md"]}
+                  fontWeight="medium"
+                  letterSpacing="widest"
+                  textTransform="uppercase"
+                  textColor={textColor}
+                >
+                  Socials
+                </Text>
+                {Object.entries(siteConfig.socials).map(([social, href]) => (
+                  <Link
+                    key={social}
+                    href={href}
+                    fontSize={["xs", "sm"]}
+                    isExternal
+                  >
+                    {social} <ExternalLinkIcon boxSize={3} mx="2px" />
+                  </Link>
+                ))}
+              </Stack>
+            </VStack>
+          </HStack>
         </HStack>
       </Container>
     </Box>
