@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
 
       <DefaultSeo
-        title: seo.title,
+        title={seo.title},
         description={seo.description},
         openGraph={{
           title: seo.title,
