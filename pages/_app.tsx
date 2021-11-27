@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           site_name: seo.title,
           images: [
             {
-              url: seo.openGraph.ogImg,
+              url: `${seo.url}/opengraph.png`,
               width: seo.openGraph.width,
               height: seo.openGraph.height,
               alt: `${seo.title} OG Image`,
