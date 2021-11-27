@@ -16,13 +16,12 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
 
       <DefaultSeo
-        canonical={seo.url}
-        title={seo.title}
-        description={seo.description}
+        title: seo.title,
+        description={seo.description},
         openGraph={{
-          type: seo.type,
           title: seo.title,
           description: seo.description,
+          type: seo.type,
           site_name: seo.title,
           images: [
             {
