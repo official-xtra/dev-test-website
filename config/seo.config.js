@@ -7,8 +7,8 @@ const SEO = {
   openGraph: {
     ogImg:
       "https://raw.githubusercontent.com/official-xtra/dev-test-website/main/public/opengraph.png",
-    width: 1024,
-    height: 576,
+    width: 1920,
+    height: 1080,
   },
 };
 
