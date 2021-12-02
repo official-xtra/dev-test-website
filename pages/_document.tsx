@@ -1,5 +1,6 @@
 import * as React from "react";
 import { ColorModeScript } from "@chakra-ui/react";
+import theme from "../styles/theme";
 // eslint-disable-next-line @next/next/no-document-import-in-page
 import NextDocument, {
   DocumentContext,
