@@ -29,10 +29,16 @@ export const Footer: React.FC = () => {
   return (
     <Box as="footer" bgColor={bgColor}>
       <Container maxW="container.lg" h={["100%", "45vh"]} px={6} py={12}>
-        <HStack h="100%" align="flex-start" justify="flex-start">
+        <Stack
+          direction={["column-reverse", "row"]}
+          h="100%"
+          align="flex-start"
+          justify="flex-start"
+          spacing={8}
+        >
           <VStack
-            align={["center", "flex-start"]}
-            textAlign={["center", "left"]}
+            align="flex-start"
+            textAlign="left"
             fontSize="sm"
             spacing={[4, 6]}
           >
@@ -105,7 +111,7 @@ export const Footer: React.FC = () => {
           <Spacer display={["none", "block"]} />
 
           <HStack justify="flex-start" align="flex-start" spacing={16}>
-            <VStack textAlign="left" display={["none", "block"]}>
+            <VStack textAlign="left">
               <Stack>
                 <Text
                   fontSize={["xs", "md"]}
@@ -132,7 +138,7 @@ export const Footer: React.FC = () => {
               </Stack>
             </VStack>
 
-            <VStack textAlign="left" display={["none", "block"]}>
+            <VStack textAlign="left">
               <Stack>
                 <Text
                   fontSize={["xs", "md"]}
@@ -156,7 +162,7 @@ export const Footer: React.FC = () => {
               </Stack>
             </VStack>
           </HStack>
-        </HStack>
+        </Stack>
       </Container>
     </Box>
   );

@@ -62,7 +62,7 @@ const Team: NextPage = () => {
           {TEAM_MEMBER.map(([name, ava, href, role]) => (
             <Box
               key={name}
-              width={["75%", "50%", "25%"]}
+              width={["75%", "50%", "50%", "25%"]}
               bg={bgColor}
               p={6}
               lineHeight={1.8}
